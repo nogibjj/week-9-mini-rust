@@ -1,21 +1,13 @@
-use rand::seq::SliceRandom;
-// use rand::Rng;
-
-const FRUITS: &[&str] = &[
-    "Apple",
-    "Banana",
-    "Orange",
-    "Pineapple",
-    "Strawberry",
-    "Mango",
-    "Grapes",
-    "Kiwi",
-    "Watermelon",
-    "Peach",
-];
+use rand::prelude::*;
 
 fn main() {
-    let mut rng = rand::thread_rng();
-    let fruit = FRUITS.choose(&mut rng).unwrap();
-    println!("{}", fruit);
+    let mut rng = thread_rng();
+    let mut numbers = vec![];
+
+    for _ in 0..100 {
+        let num = rng.gen_range(0..1000);
+        numbers.push(num);
+    }
+
+    println!("{:?}", numbers);
 }
